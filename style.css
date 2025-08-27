@@ -100,7 +100,7 @@ body {
 
 .mobile-menu a {
   color: white;
-  margin: 4px 0;
+  margin: 6px 0;
   text-decoration: none;
 }
 
@@ -935,6 +935,7 @@ footer {
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+
 
 
 
