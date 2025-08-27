@@ -418,7 +418,7 @@ padding: 2rem 1rem;
 
 
 .copy-btn:hover {
-  background: #Pink;
+  background: Pink;
 }
 
 .buy-btn:hover {
@@ -930,6 +930,7 @@ footer {
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+
 
 
 
