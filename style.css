@@ -100,9 +100,63 @@ body {
 
 .mobile-menu a {
   color: white;
-  margin: 15px 0;
+  margin: 4px 0;
   text-decoration: none;
 }
+
+.has-submenu {
+  position: relative;
+}
+
+.has-submenu .submenu-toggle {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.has-submenu .arrow {
+  margin-left: 0;
+  transition: transform 0.3s ease;
+}
+
+.has-submenu.active .arrow {
+  transform: rotate(90deg);
+}
+
+/* Submenu list reset (important since we switched to <ul><li>) */
+.submenu {
+  display: none;
+  flex-direction: column;
+  list-style: none;   /* remove bullets */
+  margin: 0;          /* remove default margin */
+  padding: 0;         /* remove default padding */
+  background: black;  /* submenu background */
+}
+
+.has-submenu.active .submenu {
+  display: flex;
+}
+
+/* Submenu list items */
+.submenu li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Submenu links */
+.submenu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;        /* adjust to match your theme */
+}
+
+.submenu a:hover {
+  background: rgba(255, 255, 255, 0.1); /* subtle hover */
+}
+
 
 /* Hero Section */
 .hero {
@@ -881,6 +935,7 @@ footer {
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+
 
 
 
