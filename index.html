@@ -383,45 +383,76 @@ videos.forEach(video => observer.observe(video));
 </script>
 
 
-
-
-  <script>
-// Close mobile menu when a link is clicked
-document.querySelectorAll('.mobile-menu a').forEach(link => {
+<script>
+// Close mobile menu when a normal link is clicked
+document.querySelectorAll('.mobile-menu a:not(.submenu-toggle)').forEach(link => {
   link.addEventListener('click', () => {
     document.querySelector('.mobile-menu').classList.remove('active');
+    // also close any open dropdown when leaving
+    document.querySelectorAll('.has-submenu').forEach(item => item.classList.remove('active'));
   });
 });
 
-
-
-    // Mobile menu toggle
-    const toggle = document.querySelector('.menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    toggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-    });
-   
-  </script>
+// Mobile menu toggle
+const toggle = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+toggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('active');
+});
+</script>
 
 
 <script>
-  // Close mobile nav when clicking outside
+// Close mobile nav when clicking outside
 document.addEventListener("click", function (e) {
-  const navMenu = document.querySelector(".mobile-menu"); // update to your nav menu class
-  const navToggle = document.querySelector(".menu-toggle"); // update to your toggle button class
+  const navMenu = document.querySelector(".mobile-menu");
+  const navToggle = document.querySelector(".menu-toggle");
 
-  if (!navMenu || !navToggle) return; // safety check
+  if (!navMenu || !navToggle) return;
 
-  // if nav is open and click is outside both the menu and the toggle button
-  if (navMenu.classList.contains("active") && 
-      !navMenu.contains(e.target) && 
-      !navToggle.contains(e.target)) {
+  if (
+    navMenu.classList.contains("active") &&
+    !navMenu.contains(e.target) &&
+    !navToggle.contains(e.target)
+  ) {
     navMenu.classList.remove("active");
+    // reset dropdown too
+    document.querySelectorAll(".has-submenu").forEach(item => item.classList.remove("active"));
   }
 });
-
 </script>
+
+
+<script>
+// Submenu toggle (for Pictures dropdown)
+document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const parent = toggle.parentElement;
+
+    // close others if you want accordion style
+    document.querySelectorAll('.has-submenu').forEach(item => {
+      if (item !== parent) item.classList.remove('active');
+    });
+
+    parent.classList.toggle('active');
+  });
+});
+
+// Close the whole menu if a submenu link is clicked
+document.querySelectorAll('.submenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.mobile-menu').classList.remove('active');
+    // reset dropdown
+    document.querySelectorAll('.has-submenu').forEach(item => item.classList.remove('active'));
+  });
+});
+</script>
+
+
+
+
+
 
    
 <!-- ✅ Copy button-->
@@ -518,6 +549,7 @@ normalLightbox.addEventListener("click", (e) => {
 </body>
 
 </html>
+
 
 
 
