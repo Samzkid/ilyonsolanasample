@@ -32,26 +32,16 @@ body {
 }
 
 .logo {
-  font-size: 1.5em;
-  font-weight: bold;
+  text-align: center;      /* center it */
+  width: 100%;             
 }
 
 
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.5em;
-  font-weight: bold;
-  gap: 10px; /* space between logo and text */
+@media (min-width: 769px) {
+  .logo {
+    display: none;
+  }
 }
-
-.logo img {
-  height: 35px; /* adjust as needed */
-  width: auto;
-}
-
-
-
 
 .nav {
   position: absolute;
@@ -888,6 +878,7 @@ footer {
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+
 
 
 
