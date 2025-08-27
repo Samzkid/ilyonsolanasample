@@ -268,10 +268,12 @@ padding: 30px;
   font-size: 22px;
   margin-top: 20px;
   margin-bottom: 10px;
+   text-align: center;
 }
 
 .about-content h2 {
   color: #ff5ca2;
+   text-align: center;
 }
 
 .about-content p {
@@ -886,6 +888,7 @@ footer {
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+
 
 
 
