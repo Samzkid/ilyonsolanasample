@@ -517,6 +517,7 @@ color: #eee;
   font-size:1.1rem;
   color: #ccc;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .community-buttons {
@@ -880,6 +881,7 @@ footer {
   text-decoration: none;
   transition: background 0.3s ease, transform 0.2s ease;
 }
+
 
 
 
